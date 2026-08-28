@@ -1,0 +1,13 @@
+{
+  "id": "cov-01-larkspur",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "19:00",
+  "party_name": "Larkspur Media",
+  "party_size": 40,
+  "dietary": [],
+  "occasion": "",
+  "is_group": true,
+  "notes": "Corporate all-hands dinner, set menu requested",
+  "source": "seed"
+}

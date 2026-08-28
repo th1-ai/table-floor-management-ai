@@ -1,0 +1,13 @@
+{
+  "id": "cov-11-oliveira",
+  "day_offset": 0,
+  "service": "lunch",
+  "time": "13:00",
+  "party_name": "Oliveira",
+  "party_size": 4,
+  "dietary": ["vegetarian"],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "cov-10-ahn",
+  "day_offset": 0,
+  "service": "lunch",
+  "time": "12:30",
+  "party_name": "Ahn",
+  "party_size": 2,
+  "dietary": [],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

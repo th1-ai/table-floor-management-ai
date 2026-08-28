@@ -1,0 +1,13 @@
+{
+  "id": "cov-07-mercer",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "20:30",
+  "party_name": "Mercer",
+  "party_size": 8,
+  "dietary": [],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "cov-08-solberg",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "21:00",
+  "party_name": "Solberg",
+  "party_size": 2,
+  "dietary": [],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

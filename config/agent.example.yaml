@@ -1,0 +1,93 @@
+# ---------------------------------------------------------------------------
+# agent.yaml - Table / Floor Management AI's own knobs.
+#
+# `make setup` copies this file to config/agent.yaml. Edit THAT one.
+# Anything here may only make hotel.yaml STRICTER (e.g. mode: shadow here
+# always wins), never looser - see core/config.py.
+# ---------------------------------------------------------------------------
+
+# The restaurant this agent plans for. Purely descriptive - used in the
+# pre-service note and in doctor/report output.
+restaurant:
+  name: "The Birchwood Room"
+  venue: "restaurant"          # matches floor_tables.venue / restaurant_covers.venue
+
+# Which service(s) to plan by default when no --service flag is given.
+services: [lunch, dinner]
+
+# --- Which systems this agent actually uses through core/adapters ---------
+# Only messaging (`tools/review.py send` -> notify_staff: the pre-service
+# note and the seated/unseated summary). The floor book itself is NOT a core
+# adapter - tables and covers come from fixtures/restaurant/*.json or
+# data/imports/*.csv via tools/covers_book.py, see docs/integrations.md
+# "The floor book - not the PMS adapter". Nothing in this repo calls
+# get_pms() or get_email(), so systems.pms.adapter / systems.email.adapter
+# stay mock forever and must never trigger the "SAMPLE DATA" warning - hence
+# they are left out here on purpose. Listing messaging still warns you
+# correctly if THAT is still on mock once you are running for real.
+systems_used: [messaging]
+
+# The house engine constants (ARCHITECTURE.md section 2, "Design decisions"
+# 3 and 5 in docs/how-it-works.md). These are the source demo's own numbers,
+# not an industry benchmark - calibrate them to your own room and service.
+late_cutoff: "20:15"      # before this = first turn, at/after = second turn
+banquet_factor: 1.15      # capacity bonus for a private-dining composite
+zone_cover_cap: 24        # covers per zone per turn before server-balance warns
+
+# Which of YOUR floor_tables.csv zone names count as an occasion "hold zone"
+# - vip-window seats an anniversary/honeymoon/birthday etc. here first, when
+# one is free. Matched case- and accent-insensitively, so "sala"/"SALA"/
+# "Sala" all match. The shipped demo's own zones are Window/Terrace; change
+# this to your own zone names (e.g. ["Sala", "Giardino"]) or the hold never
+# fires for anyone - `make doctor`'s "floor book sources" line does not
+# check this for you.
+hold_zones: ["Window", "Terrace"]
+
+# The five dining rules (ported from the source's `dining_rules` table).
+# This is the SEED state only - after the first `make demo` / `make run`,
+# the live values live in data/agent.db and are changed with
+# `tools/run.py --set-rule <key>=on|off`, not by editing this file.
+dining_rules:
+  turn-time:
+    label: "Turn tables twice"
+    description: "Split the night into two turns at late_cutoff so every table can be sold twice."
+    enabled: true
+  join-tables:
+    label: "Allow table joins"
+    description: "Let adjoining tables be joined into one for a party too big for a single table."
+    enabled: true
+  vip-window:
+    label: "Occasion holds"
+    description: "Seat anniversaries/birthdays/honeymoons first and prefer a table in hold_zones (below)."
+    enabled: true
+  server-balance:
+    label: "Server-section balance"
+    description: "Warn when one zone carries more than zone_cover_cap covers in a single turn."
+    enabled: true
+  allergy-flag:
+    label: "Kitchen allergy sheet"
+    description: "Print every seated party's dietary notes to the kitchen sheet, with any nut allergy headlined."
+    enabled: true
+
+# needs_human escalation (see docs/how-it-works.md "Nothing seats a walk-in
+# or changes a plan without a person"). Not configurable per-item - every
+# unseated booking, and any nut allergy present while allergy-flag is off,
+# always escalates.
+
+# How the agent thinks. Overrides the llm: block in hotel.yaml for this
+# agent only. Leave blank to fall back to hotel.yaml.
+llm:
+  effort: low   # the narrative is a short summary of numbers already computed
+
+review:
+  require_approval_for: [send_message, sheets_write, publish]
+
+# Every recurring job this agent runs. `make schedule ARGS="--all"` prints
+# one ready-to-install snippet per entry - see README section 9.
+schedule:
+  plan_lunch:
+    command: "tools/run.py --once --service lunch"
+    cadence: "morning"        # 07:00 - well before lunch service
+  plan_dinner:
+    command: "tools/run.py --once --service dinner"
+    cadence: "0 16 * * *"     # 16:00 - well before dinner service

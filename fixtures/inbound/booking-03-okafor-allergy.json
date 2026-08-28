@@ -1,0 +1,13 @@
+{
+  "id": "cov-03-okafor",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "19:15",
+  "party_name": "Okafor",
+  "party_size": 2,
+  "dietary": ["nut allergy"],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

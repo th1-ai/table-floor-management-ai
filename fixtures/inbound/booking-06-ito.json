@@ -1,0 +1,13 @@
+{
+  "id": "cov-06-ito",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "18:45",
+  "party_name": "Ito",
+  "party_size": 3,
+  "dietary": [],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

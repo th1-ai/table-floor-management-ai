@@ -1,0 +1,13 @@
+{
+  "id": "cov-04-bianchi",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "19:45",
+  "party_name": "Bianchi",
+  "party_size": 4,
+  "dietary": ["gluten free", "nut allergy"],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

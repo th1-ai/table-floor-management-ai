@@ -1,0 +1,13 @@
+{
+  "id": "cov-02-farrow",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "19:30",
+  "party_name": "Farrow",
+  "party_size": 2,
+  "dietary": [],
+  "occasion": "anniversary",
+  "is_group": false,
+  "notes": "Celebrating 10 years, requested a quiet table",
+  "source": "seed"
+}

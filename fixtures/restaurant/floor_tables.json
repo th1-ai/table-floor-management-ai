@@ -1,0 +1,18 @@
+[
+  {"id": "W1", "zone": "Window",  "seats": 2, "joinable_with": ["W2"], "x": 10, "y": 10, "w": 2, "h": 2},
+  {"id": "W2", "zone": "Window",  "seats": 2, "joinable_with": ["W1"], "x": 13, "y": 10, "w": 2, "h": 2},
+  {"id": "W3", "zone": "Window",  "seats": 4, "joinable_with": ["W4"], "x": 10, "y": 14, "w": 3, "h": 2},
+  {"id": "W4", "zone": "Window",  "seats": 4, "joinable_with": ["W3"], "x": 14, "y": 14, "w": 3, "h": 2},
+  {"id": "T1", "zone": "Terrace", "seats": 2, "joinable_with": ["T2"], "x": 30, "y": 10, "w": 2, "h": 2},
+  {"id": "T2", "zone": "Terrace", "seats": 4, "joinable_with": ["T1"], "x": 33, "y": 10, "w": 3, "h": 2},
+  {"id": "T3", "zone": "Terrace", "seats": 6, "joinable_with": [], "x": 30, "y": 14, "w": 4, "h": 2},
+  {"id": "B1", "zone": "Bar",     "seats": 2, "joinable_with": [], "x": 5,  "y": 30, "w": 2, "h": 1},
+  {"id": "B2", "zone": "Bar",     "seats": 2, "joinable_with": [], "x": 8,  "y": 30, "w": 2, "h": 1},
+  {"id": "M1", "zone": "Main",    "seats": 2, "joinable_with": ["M2"], "x": 18, "y": 24, "w": 2, "h": 2},
+  {"id": "M2", "zone": "Main",    "seats": 2, "joinable_with": ["M1"], "x": 21, "y": 24, "w": 2, "h": 2},
+  {"id": "M3", "zone": "Main",    "seats": 4, "joinable_with": ["M4"], "x": 18, "y": 27, "w": 3, "h": 2},
+  {"id": "M4", "zone": "Main",    "seats": 6, "joinable_with": ["M3"], "x": 22, "y": 27, "w": 4, "h": 2},
+  {"id": "M5", "zone": "Main",    "seats": 8, "joinable_with": [], "x": 18, "y": 31, "w": 5, "h": 2},
+  {"id": "P1", "zone": "Private", "seats": 10, "joinable_with": ["P2"], "x": 40, "y": 24, "w": 5, "h": 3},
+  {"id": "P2", "zone": "Private", "seats": 8, "joinable_with": ["P1"], "x": 46, "y": 24, "w": 4, "h": 3}
+]

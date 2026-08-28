@@ -1,0 +1,13 @@
+{
+  "id": "cov-09-petrov",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "20:45",
+  "party_name": "Petrov",
+  "party_size": 6,
+  "dietary": [],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}

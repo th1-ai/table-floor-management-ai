@@ -1,0 +1,13 @@
+{
+  "id": "cov-05-whitfield",
+  "day_offset": 1,
+  "service": "dinner",
+  "time": "19:00",
+  "party_name": "Whitfield",
+  "party_size": 4,
+  "dietary": [],
+  "occasion": "",
+  "is_group": false,
+  "notes": "",
+  "source": "seed"
+}
